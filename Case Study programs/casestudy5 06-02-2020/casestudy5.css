@@ -1,0 +1,63 @@
+a:link
+{
+    text-decoration: none;
+}
+
+.main
+{
+background-image: url("Image/bg.jpg"); 
+height: 1200px;
+width:1300px;
+}
+.first
+{
+   
+    height:550px;
+    width:1000px;
+    margin-left:100px;
+    
+}
+.line
+{
+    height:80px;
+    width:1330px;
+    background-image: url("Image/bg-header.jpg");
+    padding-left: 50px;
+
+    
+}
+.second
+{
+    background-color: lightslategray;
+    height:550px;
+    width:1000px;
+    margin-left: 100px;
+    
+    display:grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+.more
+{
+    height: 80px;
+    width:1000px;
+}
+.one
+{
+    height: 50px;
+    width:200px;
+}
+.two
+{
+    height: 50px;
+    width:200px;
+} 
+.three
+{
+    height: 50px;
+    width:200px;
+}
+.four
+{
+    height: 50px;
+    width:200px;
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        .container
+        {
+            background-color: gray;
+            height:700px;
+           margin-top: 20px;
+           display:grid;
+
+    
+        }
+        .col1
+        {
+         background-color:tomato;
+         height: 500px;
+         width: 250px;
+         margin-left: 100px;
+         margin-top: 20px;
+         border:solid whitesmoke 15px;
+         padding-top: 10px;
+          padding-left:20px;
+
+        }
+        .col2
+        {
+        background-color:tomato;
+         height: 500px;
+         width: 250px;
+         margin-left: 100px;
+         margin-top: 20px;
+         border:solid whitesmoke 15px;
+         padding-top: 10px;  
+         padding-left: 20px;
+
+        }
+        .col3
+        {
+        background-color:tomato;
+         height: 500px;
+         width: 250px;
+         margin-left: 100px;
+         margin-top: 20px;
+         border:solid whitesmoke 15px;
+         padding-top: 10px; 
+         padding-left: 20px;
+        }
+        
+    </style>
+<head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+        <div class="col1">
+            <img src="symbol.png"><br><br>
+            <h5>Become a member</h5><br>
+            <h6>Welcome to the Super 8 Film society. We are a group of film enthusiasts who meet up each 
+                month to watch old movies on film, in our own private cinema.
+                 We also create our own short film each year, which is entered into film competitions worldwide. </h4>
+        </div>
+        <div class="col2">
+         <h5>Settings</h5><br>
+         <h6>username</h6>
+         <input type="text" id="txt1" onblur="checkUsername()" required><br>
+         <label for=""id="l1"></label>
+        <h6>Email ID</h6>
+         <input type="email" id ="email" onblur="validateemail()" required><br><br>
+          <label for="" id="l2"></label>
+          <h6>Password</h6>
+         <input type="text" id="pwd" onblur="validatepwd()" required><br><br>
+         <p id="p1"></p>
+         <h6>Confirm password</h6>
+         <input type="password" id="pwd2" onblur="confirm()" required> 
+         <p id="p1"></p>
+
+         </div> 
+        
+       <div class="col3">
+        <h5>Profile</h5><br>
+        <h6>BirthDay</h6>
+        <input type="date" id="date" oninput="Datecal()"><br><br>
+         <p><label id="age"></label></p>
+        <h6>Short Bio</h6>
+       <textarea id="ta" rows="5" coloum="50" onkeyup="Countword()"></textarea><br>
+        <p>characters:<label id="label4"></label></p><br><br>
+        <input type="submit" id="sub" value="Register" onclick="register()">
+
+
+
+        </div>
+       </div>
+    </div>
+    <Script>
+    
+         function checkUsername()
+        {
+            var inputVal = document.getElementById("txt1").value;
+            var l=inputVal.length;
+            if(l<5){
+
+            
+             document.getElementById("l1").innerHTML="Enter minimum 5 characters";
+            }
+            else{
+                document.getElementById("l1").innerHTML="";
+            }
+           
+        }
+        function validateemail()
+        {  
+            var email=document.getElementById("email").value;
+            if(email == "")
+             {
+            document.getElementById("l2").innerHTML="Please enter your email address";
+        } 
+    else 
+    {
+    
+        var regex = /^\S+@\S+\.\S+$/;
+        if(regex.test(email) === false)
+         {
+            document.getElementById("l2").innerHTML="Please enter a valid email address";
+        } 
+        else{
+            document.getElementById("l2").innerHTML="";
+        }
+       }
+        }
+        function validatepwd()
+        {    var pwd=document.getElementById("pwd").value;
+            var decimal= /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+            
+           
+
+     if(decimal.test(pwd)==true)
+     { 
+    document.getElementById("p1").innerHTML=" ";
+
+     }
+    else
+      { 
+    document.getElementById("p1").innerHTML="please enter valid password";
+
+      }
+    }
+    function confirm()
+     {
+
+    var pwd=document.getElementById("pwd").value;
+    var pwd2=document.getElementById("pwd2").value;
+   if(pwd==pwd2)
+    { 
+      document.getElementById("p2").innerHTML=" ";
+      }
+    else
+     { 
+    document.getElementById("p1").innerHTML="please ensure your password";
+
+    }
+
+    }
+    function Countword()
+  {
+    var v=document.getElementById("ta").value.length;
+    console.log(v);
+    var charactersLeft =140-v;
+    document.getElementById("label4").innerHTML=charactersLeft;
+
+  }
+  
+
+  function Datecal() {
+  var start = new Date(document.getElementById("date").value);
+  var y = start.getFullYear();
+  var cy=new Date().getFullYear()
+  console.log(y);
+  var age = cy - y;
+  if (age < 18) {
+    document.getElementById("age").innerHTML = "age is below under 18";
+  }
+  else {
+    document.getElementById("age").innerHTML = "";
+  }
+}
+
+
+
+
+  function register()
+  {
+      alert("Successfully Registerd");
+  }
+
+           
+        
+    </Script>
+</body>
+</html>
